@@ -1,0 +1,5 @@
+.visual{
+	height: 100vh;
+	background: rgba($black, .6) url(#{$images}visual-bg.jpg) 50% 50% no-repeat;
+	background-size: cover;
+}

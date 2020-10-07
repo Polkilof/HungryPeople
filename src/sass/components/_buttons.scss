@@ -1,0 +1,28 @@
+/* buttons */
+.btn{
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid transparent;
+	text-align: center;
+	font-family: $font-family-base;
+	border-radius: $btn-border-radius-base;
+	font-weight: $btn-font-weight;
+	font-size: $btn-font-size;
+	line-height: $btn-line-height;
+	padding: 15px 38px;
+	color: $btn-color;
+	background: transparent;
+	width: 100%;
+	max-width: 170px;
+	&.active:focus,
+	&.active:hover,
+	&:focus,
+	&:active,
+	&:hover{
+		box-shadow: none;
+		outline: none;
+	}
+}
+/*end btn*/

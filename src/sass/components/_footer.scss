@@ -1,0 +1,16 @@
+/* footer */
+.footer-page{
+	padding: 43px 0;
+	background: rgba($black, 0.9);
+	@include media('<tablet'){
+		padding: 20px 0;
+	}
+	&__copyright{
+		display: block;
+		text-align: center;
+		font-size: 12px;
+		line-height: 1;
+		color: rgba($white, 0.5);
+		margin: 0;
+	}
+}

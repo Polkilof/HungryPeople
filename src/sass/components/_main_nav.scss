@@ -1,0 +1,65 @@
+/* main-nav */
+.main-nav{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	@include media("<tablet"){
+		display: block;
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: 280px;
+		right: -280px;
+		background: $white;
+		z-index: 100;
+		transition: right .5s;
+		overflow-y: auto;
+		overflow-x: hidden;
+		flex-direction: column;
+		padding: 84px 0 18px;
+	}
+	@include media("<phone"){
+		width: 260px;
+		right: -260px;
+	}
+	&__list{
+		display: flex;
+		align-items: center;
+		width: 38.6%;
+		border-bottom: 1px solid rgba($white, .2);
+		@include media('<tablet'){
+			flex-direction: column;
+			width: 100%;
+			border-bottom: none;
+		}
+	}
+	&__item{
+		width: 100%;
+		height: 100px;
+		@include media('<tablet'){
+			height: 50px;
+		}
+	}
+	&__link{
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		font-size: 12px;
+		line-height: 18px;
+		font-weight: 700;
+		color: $white;
+		text-transform: uppercase;
+		transition: color .2s;
+		@include media('<tablet'){
+			color: $black;
+		}
+		&:hover, &:active, &_active{
+			color: $yellow;
+		}
+	}
+}
