@@ -1,24 +1,24 @@
 $(window).resize(function(event) {
-	$('.slider').slick('setPosition');
-
+	$('.slide').slick('setPosition');
+	pageScrollDown();
 });
 
 $(document).ready(initPage);
 function initPage(){
-	ImgTobg();
 	mobileMenu();
 	header_fixed_class();
-	$(function() {
-		jcf.replaceAll();
-	});
+	customForm();
+	slider();
+	validateFields();
+	pageScrollDown();
 }
 
-function ImgTobg() {
-	$('.img-to-bg').each(function() {
-		if ($(this).find('img').length) {
-			$(this).css('background-image', 'url(' + $(this).find('> img').attr('src') + ')');
-		}
+function customForm() {
+	jcf.setOptions('Select', {
+		wrapNative: false,
+		wrapNativeOnMobile: false,
 	});
+	jcf.replaceAll();
 }
 
 function mobileMenu(){
@@ -34,63 +34,148 @@ function mobileMenu(){
 }
 
 function header_fixed_class(){
-	var header = $('.header-page');
-	var wrapper = $('.wrapper');
-	var heightEl  = 0;
+	let header = $('.header-page');
+	let heightEl  = 0;
 	$(window).scrollTop() > heightEl ? header.addClass('modify') : header.removeClass('modify');
-	$(window).scrollTop() > heightEl ? wrapper.addClass('header_fixed') : wrapper.removeClass('header_fixed');
 	$(window).scroll(function(event){
 		$(window).scrollTop() > heightEl ? header.addClass('modify') : header.removeClass('modify');
-		$(window).scrollTop() > heightEl ? wrapper.addClass('header_fixed') : wrapper.removeClass('header_fixed');
+	});
+}
+
+function pageScrollDown(){
+	$(".btn-down").click(function(e){
+		var href = $(this).attr("href"),
+		offsetTop = href === "#" ? 0 : $(href).offset().top - $('.header-page').outerHeight();
+		$("html, body").stop().animate({
+			scrollTop: offsetTop
+		}, 600);
+		e.preventDefault();
+	});
+}
+
+function slider(){
+	$('.slide').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		autoplay: true,
+		dots: true,
+		arrows: false,
+		fade: true,
+		infinite: true,
+		autoplaySpeed: 2500
 	});
 }
 
 function validateFields(){
-	if( document.querySelector('.contact-form') ){
-		$(".contact-form").validate({
-			highlight: function(element) {
-				$(element).parent().addClass('form__box_error').removeClass('form__box_valid');
-			},
-			unhighlight: function(element) {
-				$(element).parent().removeClass('form__box_error').addClass('form__box_valid');
-			},
-			rules: {
-				request: {
-					required: false,
-					minlength: false
-				},
-				name: {
-					required: true,
-					minlength: 2
-				},
-				email: {
-					required: true,
-					email: true,
-					myEmail: true
-				}
-			},
-			messages: {
-				request: {
-					required: false,
-					minlength: false
-				},
-				name: {
-					required: false,
-					minlength: false
-				},
-				email: {
-					required: false,
-					email: false,
-					myEmail: false
-				}
-			}
-		});
+	let form = document.querySelector('.formWithValidation');
+	let fields = form.querySelectorAll('.js-field');
 
-		$.validator.addMethod(
-			"myEmail",
-			function(value, element){
-				return value.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-			}
-		);
+	function validateEmail(data) {
+		let testData = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+		if(testData.test(data)) {
+			return true;
+		}
+		return false;
 	}
+
+	var generateError = function(text) {
+		var error = document.createElement('label')
+		error.classList.add('error');
+		error.innerHTML = text;
+		return error;
+	}
+
+	var removeValidation = function() {
+		var errors = form.querySelectorAll('.error');
+		for (var i = 0; i < errors.length; i++) {
+			errors[i].remove();
+		}
+	}
+
+	function checkFields() {
+		for (var i = 0; i < fields.length; i++) {
+			if (!fields[i].value) {
+				var error = generateError('Field is empty');
+				form[i].parentElement.classList.add('form__box_error');
+				form[i].parentElement.insertBefore(error, fields[i]);
+			}
+		}
+	};
+
+	document.getElementById('username').onblur = function() {
+		let status = document.getElementById('username').value;
+		let error = generateError('');
+		if (status.length <= 0) {
+			if (this.parentElement.querySelector('.error') == null) {
+				this.parentElement.prepend(error);
+			}
+			this.parentElement.querySelector('.error').innerHTML = 'Field is empty';
+			this.parentElement.classList.add('form__box_error');
+		} else {
+			if (this.parentElement.querySelector('.error') !== null) {
+				this.parentElement.querySelector('.error').remove();
+			}
+			this.parentElement.classList.remove('form__box_error');
+		}
+	};
+
+	document.getElementById('email').onblur = function() {
+		let status = document.getElementById('email').value;
+		let error = generateError('');
+		if (status.length <= 0) {
+			if (this.parentElement.querySelector('.error') == null) {
+				this.parentElement.prepend(error);
+			}
+			this.parentElement.querySelector('.error').innerHTML = 'Field is empty';
+			this.parentElement.classList.add('form__box_error');
+		} else if (!validateEmail(status)) {
+			this.parentElement.querySelector('.error').innerHTML = 'Invalid email address!';
+			this.parentElement.classList.add('form__box_error');
+		} else {
+			if (this.parentElement.querySelector('.error') !== null) {
+				this.parentElement.querySelector('.error').remove();
+			}
+			this.parentElement.classList.remove('form__box_error');
+		}
+	};
+
+	document.getElementById('select').onchange = function() {
+		let status = document.getElementById('select').value;
+		let error = generateError('');
+		if (status.length <= 0) {
+			if (this.parentElement.querySelector('.error') == null) {
+				this.parentElement.prepend(error);
+			}
+			this.parentElement.querySelector('.error').innerHTML = 'Field is empty';
+			this.parentElement.classList.add('form__box_error');
+		} else {
+			if (this.parentElement.querySelector('.error') !== null) {
+				this.parentElement.querySelector('.error').remove();
+			}
+			this.parentElement.classList.remove('form__box_error');
+		}
+	};
+
+	document.getElementById('message').onblur = function() {
+		let status = document.getElementById('message').value;
+		let error = generateError('');
+		if (status.length <= 0) {
+			if (this.parentElement.querySelector('.error') == null) {
+				this.parentElement.prepend(error);
+			}
+			this.parentElement.querySelector('.error').innerHTML = 'Field is empty';
+		} else {
+			if (this.parentElement.querySelector('.error') !== null) {
+				this.parentElement.querySelector('.error').remove();
+			}
+			this.parentElement.classList.remove('form__box_error');
+		}
+	};
+
+	form.addEventListener('submit', function(e){
+		e.preventDefault();
+
+		removeValidation();
+		checkFields();
+	});
 }

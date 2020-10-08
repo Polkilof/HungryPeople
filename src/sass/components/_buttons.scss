@@ -1,7 +1,7 @@
 /* buttons */
 .btn{
 	position: relative;
-	display: flex;
+	display: inline-flex;
 	justify-content: center;
 	align-items: center;
 	border: 1px solid transparent;
@@ -11,11 +11,16 @@
 	font-weight: $btn-font-weight;
 	font-size: $btn-font-size;
 	line-height: $btn-line-height;
-	padding: 15px 38px;
+	padding: 19px 12px;
 	color: $btn-color;
 	background: transparent;
 	width: 100%;
-	max-width: 170px;
+	max-width: 200px;
+	transition: all .2s;
+	cursor: pointer;
+	@include media("<phone"){
+		padding: 14px 12px;
+	}
 	&.active:focus,
 	&.active:hover,
 	&:focus,
@@ -23,6 +28,41 @@
 	&:hover{
 		box-shadow: none;
 		outline: none;
+	}
+	&:disabled{
+		opacity: 0.5;
+		pointer-events: none;
+	}
+	&_full-width{
+		max-width: 100%;
+	}
+	&_primary{
+		background: $yellow;
+		border: 1px solid $yellow;
+		color: $white;
+		&.active:focus,
+		&.active:hover,
+		&:focus,
+		&:active,
+		&:hover{
+			color: $yellow;
+			background: $gray;
+			border-color: $gray;
+		}
+	}
+	&_transparent{
+		background: transparent;
+		border: 1px solid rgba($white, .5);
+		color: $white;
+		&.active:focus,
+		&.active:hover,
+		&:focus,
+		&:active,
+		&:hover{
+			color: $black;
+			background: $white;
+			border-color: $white;
+		}
 	}
 }
 /*end btn*/

@@ -1,5 +1,324 @@
 .visual{
+	position: relative;
+	padding: 101px 0 0;
 	height: 100vh;
 	background: rgba($black, .6) url(#{$images}visual-bg.jpg) 50% 50% no-repeat;
 	background-size: cover;
+	color: $white;
+	overflow: hidden;
+	@include media('<tablet'){
+		padding: 84px 0 0;
+	}
+	> .container{
+		height: 100%;
+	}
+	&__wrap{
+		position: relative;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0 200px;
+		z-index: 0;
+		@include media("<tablet"){
+			padding: 0 76px;
+		}
+		@include media("<phone"){
+			padding: 0 48px;
+		}
+	}
+	&__content{
+		display: flex;
+		flex-flow: column;
+		align-items: center;
+		width: 100%;
+		.page__title{
+			margin-bottom: 18px;
+		}
+		&-buttons{
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: center;
+			width: 100%;
+			@include media("<phone"){
+				flex-flow: column;
+				align-items: center;
+			}
+			.btn{
+				margin: 0 20px;
+				@include media("<tablet"){
+					margin: 0 10px;
+				}
+				@include media("<phone"){
+					margin: 0 0 15px;
+				}
+				&:last-child{
+					@include media("<phone"){
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+.working-time{
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translate(0, -50%) rotate(180deg);
+	-webkit-writing-mode: vertical-rl;
+	-ms-writing-mode: tb-rl;
+	writing-mode: tb-rl;
+	font-size: 12px;
+	line-height: 12px;
+	font-weight: 700;
+	white-space: nowrap;
+}
+
+.socials{
+	position: absolute;
+	top: 50%;
+	right: 0;
+	transform: translate(0, -50%);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-flow: column;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	&__item{
+		display: inline-block;
+		vertical-align: top;
+		padding: 10px 0;
+	}
+	&__link{
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 60px;
+		height: 60px;
+		border: 1px solid rgba($white, .2);
+		border-radius: 50%;
+		font-size: 20px;
+		color: $white;
+		overflow: hidden;
+		transition: all .2s ease-in-out;
+		@include media("<phone"){
+			width: 40px;
+			height: 40px;
+			font-size: 12px;
+		}
+		&:hover{
+			border-color: $white;
+			color: $white;
+		}
+	}
+}
+
+.line{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	display: block;
+	width: 1px;
+	background: rgba($white, .2);
+	&_left{
+		left: 17%;
+	}
+	&_center{
+		left: 50%;
+		transform: translate(-50%, 0);
+	}
+	&_right{
+		right: 17%;
+	}
+}
+
+.btn-down{
+	display: block;
+	position: absolute;
+	bottom: 10vh;
+	left: 50%;
+	transform: translate(-50%, 0);
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	border: 1px solid rgba($white, .2);
+	padding: 10px;
+	z-index: -1;
+	@include media("<phone"){
+		width: 40px;
+		height: 40px;
+		padding: 5px;
+	}
+	@include media("<phone-xs"){
+		bottom: 5vh;
+	}
+	&:before, &:after{
+		content: '';
+		position: absolute;
+		left: 50%;
+		width: 1px;
+		background: rgba($white, .2);
+	}
+	&:before{
+		top: -1px;
+		height: 57vh;
+		transform: translate(-50%, -100%);
+	}
+	&:after{
+		bottom: -1px;
+		height: 20vh;
+		transform: translate(-50%, 100%);
+	}
+	&__icon{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: $white;
+		border-radius: 50%;
+		width: 100%;
+		height: 100%;
+		font-size: 20px;
+		color: $gray;
+		@include media("<phone"){
+			font-size: 14px;
+		}
+	}
+}
+
+.team{
+	background: rgba($black, .6) url(#{$images}team-bg.jpg) 50% 50% no-repeat;
+	background-size: cover;
+	color: $white;
+	text-align: center;
+	&__wrap{
+		position: relative;
+		padding: 45px 0;
+		z-index: 0;
+	}
+	.page__title{
+		@include media("<tablet"){
+			margin-bottom: 20px;
+		}
+	}
+}
+
+.row{
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	&_reverse{
+		flex-flow: row-reverse wrap;
+		.row__col-image{
+			float: left;
+			@include media('<desktop'){
+				float: none;
+			}
+		}
+	}
+	&__col{
+		width: 50%;
+		@include media("<phone"){
+			width: auto;
+		}
+		&-image{
+			float: right;
+			max-height: 100%;
+			@include media('<desktop'){
+				float: none;
+				max-width: 100%;
+			}
+		}
+	}
+	&__holder{
+		padding: 0 20px;
+		@include media("<phone"){
+			padding: 0;
+		}
+	}
+	&__text{
+		margin: 0;
+	}
+}
+
+.contact{
+	padding: 100px 0;
+	@include media('<tablet'){
+		padding: 45px 0;
+	}
+	.h4{
+		max-width: 565px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	&__info-list{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		@include media("<phone"){
+			margin-top: 24px;
+		}
+	}
+	&__info-item{
+		display: inline-flex;
+		align-items: center;
+		font-size: 12px;
+		line-height: 1;
+		color: rgba($gray, .5);
+		font-weight: 700;
+		margin: 6px 0;
+		margin-right: 8px;
+	}
+	&__info-addres{
+		display: inline-block;
+		vertical-align: top;
+		font-style: normal;
+	}
+	&__info-icon{
+		font-size: 14px;
+		color: $yellow;
+		margin-right: 10px;
+	}
+	&__info-link{
+		display: inline-block;
+		vertical-align: top;
+		color: rgba($gray, .5);
+		transition: color .2s ease;
+		&:hover{
+			color: rgba($gray, 1);
+		}
+	}
+}
+
+.specialties{
+	background: rgba($black, .6) url(#{$images}specialties-bg.jpg) 50% 50% no-repeat;
+	background-size: cover;
+	color: $white;
+	text-align: center;
+	&__wrap{
+		position: relative;
+		padding: 45px 0 20px;
+		z-index: 0;
+	}
+	.page__title{
+		@include media("<tablet"){
+			margin-bottom: 20px;
+		}
+		@include media("<phone"){
+			margin-bottom: 16px;
+		}
+	}
+}
+.slide{
+	position: relative;
+	padding-bottom: 36px;
+	&:not(.slick-initialized){
+		display: flex;
+		opacity: 0;
+	}
 }

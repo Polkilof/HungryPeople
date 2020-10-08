@@ -1,67 +1,98 @@
+.jcf-hidden{
+	height: 60px;
+	@include media("<phone"){
+		height: 50px;
+	}
+}
 .jcf-select{
 	display: flex;
 	align-items: center;
 	min-width: auto;
 	border: 0;
 	margin: 0;
-	padding: 10px;
-	height: 50px;
-	background: $gray;
-	border-radius: 10px;
+	padding: 16px 18px;
+	height: 60px;
+	width: 100%;
+	border: 1px solid $gray_light;
+	background: $gray_light;
+	border-radius: 5px;
+	@include media("<phone"){
+		height: 50px;
+		padding: 10px 14px;
+	}
+}
+.jcf-drop-active{
+	border-color: $gray;
 }
 .jcf-select-opener{
 	background: transparent;
 }
 .jcf-select .jcf-select-opener{
-	right: 10px;
+	font-family: Font Awesome\ 5 Free;
+	font-weight: 900;
+	font-size: 20px;
+	color: rgba($gray, .5);
+	width: 60px;
+	height: 100%;
+	top: 0;
+	right: 0;
+	line-height: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	@include media("<phone"){
+		font-size: 16px;
+		width: 40px;
+	}
 }
 .jcf-select .jcf-select-opener:before {
-	content: "";
-	position: absolute;
-	top: 50%;
-	right: 0;
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-width: 5px 4.5px 0 4.5px;
-	border-color: #464646 transparent transparent transparent;
-	margin: 0px 0 0;
-	transform: translate(0, -50%) ;
-	transition: all .3s ease-in-out;
+	content: "\f107";
+	transition: all .2s;
 }
 .jcf-select.jcf-drop-active .jcf-select-opener:before {
-	transform: translate(0, -50%) rotate(180deg);
-	margin: -1x 0 0;
-}
-.jcf-select-drop {
-	position: absolute;
+	transform: translate(0, 0) rotate(180deg);
 	margin: -1px 0 0;
+}
+body > .jcf-select-drop {
+	position: absolute;
+	margin: 1px 0 0;
 	z-index: 9999;
+}
+body > .jcf-select-drop.jcf-drop-flipped {
+	margin: -1px 0 0;
 }
 .jcf-select .jcf-select-opener{
 	background: transparent;
 }
 .jcf-select .jcf-select-text{
-	margin: 2px 25px 0 0px;
-	color:$gray;
+	margin: 0 25px 0 0;
+	color: $gray;
 	font-size: 14px;
-	line-height: 18px;
+	line-height: 20px;
+	font-weight: 400;
 }
 .jcf-select-drop .jcf-hover, .jcf-list-box .jcf-selected{
 	background: $gray;
+	color: $white;
 }
 .jcf-list .jcf-option{
-	padding: 10px 10px;
-	border-radius: 8px;
+	padding: 10px;
 }
 .jcf-list{
 	display: block;
 	position: relative;
 	font-size: 14px;
 	line-height: 18px;
-	border-radius: 8px;
+	border-radius: 5px;
+	background: $gray_light;
+	overflow: hidden;
 }
-
+.jcf-list-content .jcf-option-hideme {
+	display: none;
+}
+.jcf-option-hideme{
+	color: rgba($gray, .5);
+}
 .jcf-focus{
 	border-color: #8d8b87 !important
 }
@@ -70,13 +101,52 @@
 }
 
 
-.error{
-	display: block;
-	font-size: 12px;
-	line-height: 16px;
-	font-family: $OpenSans;
+/* slick-dots */
+.slick-dotted .slick-slider{
+	margin: 0;
+}
+.slick-dots{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 0;
+	line-height: 0;
 	position: absolute;
-	top: -13px;
-	right: 0;
-	color:#ce0505;
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%, 0);
+	top: auto;
+	right: auto;
+	text-align: center;
+	z-index: 10;
+	display: flex;
+	li{
+		display: block;
+		button{
+			display: block;
+			position: relative;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			border: 0;
+			background: rgba($white, 0.5);
+			padding: 0;
+			margin: 10px;
+			outline: none;
+			transition: all .3s;
+			text-indent: -9999px;
+			cursor: pointer;
+			&:hover{
+				background: $white;
+			}
+			@include media('<phone'){
+				width: 8px;
+				height: 8px;
+				margin: 8px;
+			}
+		}
+		&.slick-active button{
+			background: $white;
+		}
+	}
 }

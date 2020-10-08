@@ -1,17 +1,173 @@
 //= inc/_head.html
 <body>
 	<div class="wrapper">
-		<div class="page">
+		<main class="page">
 			//= inc/_header.html
 			<section class="visual">
 				<div class="container">
 					
+					<div class="visual__wrap">
+						<span class="line line_left"></span>
+						<span class="line line_right"></span>
+
+						<strong class="working-time">Mon - Fri: 8PM - 10PM, Sat - Sun: 8PM - 3AM</strong>
+
+						<div class="visual__content">
+							<strong class="page__title">RESTAURANT</strong>
+							<h1 class="h1 spesefy-title">hungry people</h1>
+							<div class="visual__content-buttons">
+								<a href="#" class="btn btn_primary">BOOK TABLE</a>
+								<a href="#" class="btn btn_transparent">EXPLORE</a>
+							</div>
+						</div>
+
+						<ul class="socials">
+							<li class="socials__item">
+								<a href="#" target="_blank" class="socials__link"><i class="socials__icon fab fa-facebook-f"></i></a>
+							</li>
+							<li class="socials__item">
+								<a href="#" target="_blank" class="socials__link"><i class="socials__icon fab fa-twitter"></i></a>
+							</li>
+							<li class="socials__item">
+								<a href="#o" target="_blank" class="socials__link"><i class="socials__icon fab fa-instagram"></i></a>
+							</li>
+						</ul>
+
+						<a href="#next" class="btn-down">
+							<i class="btn-down__icon fas fa-angle-down"></i>
+						</a>
+					</div>
+
 				</div>
 			</section><!-- / visual -->
-		</div>
+			<section id="next" class="team">
+				<div class="container">
+					<div class="team__wrap">
+						<span class="line line_left"></span>
+						<span class="line line_center"></span>
+						<span class="line line_right"></span>
+						<strong class="page__title">OUR TEAM</strong>
+						<div class="row">
+							<div class="row__col">
+								<img class="row__col-image" src="images/team-img-01.png" alt="image">
+							</div>
+							<div class="row__col">
+								<div class="row__holder">
+									<h2 class="h2 spesefy-title spesefy-title_sm">MASTER CHEF</h2>
+									<h3 class="h4 _white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at velit maximus, molestie est a, tempor magna.</h3>
+									<p class="row__text">Integer ullamcorper neque eu purus euismod, ac faucibus mauris posuere. Morbi non ultrices ligula. Sed dictum, enim sed ullamcorper feugiat, dui odio vehicula eros, a sollicitudin lorem quam nec sem. Mauris tincidunt feugiat diam convallis pharetra. Nulla facilisis semper laoreet.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section><!-- / team -->
+			<section class="contact">
+				<div class="container">
+					<h2 class="h2 _black spesefy-title spesefy-title_sm">CONTACT</h2>
+					<h3 class="h4 _black">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at velit maximus, molestie est a, tempor magna.</h3>
+					<form action="#" class="form formWithValidation">
+						<div class="form__row form__row_inputfields">
+							<div class="form__box">
+								<input id="username" type="text" class="form__control js-field" placeholder="Name" name="username">
+							</div>
+							<div class="form__box">
+								<input id="email" type="text" class="form__control js-field" placeholder="Email" name="email">
+							</div>
+							<div class="form__box">
+								<select id="select" class="jcf-hidden js-field" name="select">
+									<option class="hideme" value="">People</option>
+									<option value="People 1">People 1</option>
+									<option value="People 2">People 2</option>
+									<option value="People 3">People 3</option>
+									<option value="People 4">People 4</option>
+								</select>
+							</div>
+						</div>
+						<div class="form__row">
+							<div class="form__box">
+								<textarea name="message" id="message" placeholder="Message" cols="30" rows="10" class="form__control js-field"></textarea>
+							</div>
+						</div>
+						<div class="form__buttons">
+							<ul class="contact__info-list">
+								<li class="contact__info-item">
+									<i class="contact__info-icon fas fa-map-marker-alt"></i>
+									<address class="contact__info-addres">5th London Boulevard, U.K.</address>
+								</li>
+								<li class="contact__info-item">
+									<i class="contact__info-icon fas fa-phone"></i>
+									<a href="tel:+40729131637" class="contact__info-link">+40 729 131 637</a>
+									/
+									<a href="tel:+40726458782" class="contact__info-link">+40 726 458 782</a>
+								</li>
+								<li class="contact__info-item">
+									<i class="contact__info-icon fas fa-envelope"></i>
+									<a href="mailto:office@mindblister.com"  class="contact__info-link">office@mindblister.com</a>
+								</li>
+							</ul>
+							<input id="submit" type="submit" class="btn btn_full-width btn_primary" value="SEND MESSAGE">
+						</div>
+					</form>
+				</div>
+			</section><!-- / contact -->
+			<section class="specialties">
+				<div class="container">
+					<div class="specialties__wrap">
+						<span class="line line_left"></span>
+						<span class="line line_center"></span>
+						<span class="line line_right"></span>
+						<strong class="page__title">specialties</strong>
+						<div class="slide">
+							<div class="slide__item">
+								<div class="row">
+									<div class="row__col">
+										<img class="row__col-image" src="images/team-img-01.png" alt="image">
+									</div>
+									<div class="row__col">
+										<div class="row__holder">
+											<h2 class="h2 spesefy-title spesefy-title_sm">MASTER CHEF</h2>
+											<h3 class="h4 _white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at velit maximus, molestie est a, tempor magna.</h3>
+											<p class="row__text">Integer ullamcorper neque eu purus euismod, ac faucibus mauris posuere. Morbi non ultrices ligula. Sed dictum, enim sed ullamcorper feugiat, dui odio vehicula eros, a sollicitudin lorem quam nec sem. Mauris tincidunt feugiat diam convallis pharetra. Nulla facilisis semper laoreet.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="slide__item">
+								<div class="row">
+									<div class="row__col">
+										<img class="row__col-image" src="images/specialties-img-01.png" alt="image">
+									</div>
+									<div class="row__col">
+										<div class="row__holder">
+											<h2 class="h2 spesefy-title spesefy-title_sm">chocolate pancakes</h2>
+											<h3 class="h4 _white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at velit maximus, molestie est a, tempor magna.</h3>
+											<p class="row__text">Integer ullamcorper neque eu purus euismod, ac faucibus mauris posuere. Morbi non ultrices ligula. Sed dictum, enim sed ullamcorper feugiat, dui odio vehicula eros, a sollicitudin lorem quam nec sem. Mauris tincidunt feugiat diam convallis pharetra. Nulla facilisis semper laoreet.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="slide__item">
+								<div class="row row_reverse">
+									<div class="row__col">
+										<img class="row__col-image" src="images/book-img-01.png" alt="image">
+									</div>
+									<div class="row__col">
+										<div class="row__holder">
+											<h2 class="h2 spesefy-title spesefy-title_sm">MASTER CHEF</h2>
+											<h3 class="h4 _white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at velit maximus, molestie est a, tempor magna.</h3>
+											<p class="row__text">Integer ullamcorper neque eu purus euismod, ac faucibus mauris posuere. Morbi non ultrices ligula. Sed dictum, enim sed ullamcorper feugiat, dui odio vehicula eros, a sollicitudin lorem quam nec sem. Mauris tincidunt feugiat diam convallis pharetra. Nulla facilisis semper laoreet.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section><!-- / specialties -->
+		</main>
 		//= inc/_footer.html
 	</div><!-- / wrapper -->
-
 	//= inc/_scripts.html
 </body>
 </html>

@@ -1,0 +1,101 @@
+.form{
+	padding-top: 38px;
+	@include media("<phone"){
+		padding: 0;
+	}
+	&__row{
+		display: flex;
+		flex-flow: row wrap;
+		margin: 0 -5px;
+		&_inputfields{
+			flex-flow: row nowrap;
+			justify-content: space-between;
+			@include media("<phone"){
+				flex-flow: row wrap;
+			}
+		}
+	}
+	&__box{
+		position: relative;
+		display: flex;
+		flex-flow: row wrap;
+		align-items: flex-end;
+		flex: 1 1 100%;
+		padding: 5px;
+		&_error{
+			.form__control, .jcf-select{
+				border-color: rgba($red, .4);
+				background: rgba($red, .3);
+			}
+		}
+	}
+	&__buttons{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 5px 0;
+		@include media("<phone"){
+			flex-flow: column-reverse;
+		}
+		.btn{
+			max-width: 50%;
+			@include media("<phone"){
+				max-width: 100%;
+			}
+		}
+	}
+}
+.error{
+	display: block;
+	font-size: 12px;
+	line-height: 18px;
+	font-weight: 400;
+	color: rgba($red, .7);
+	margin-bottom: 2px;
+}
+.form__control{
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+	height: 60px;
+	font-size: 14px;
+	line-height: 20px;
+	font-weight: 400;
+	color: $gray;
+	padding: 16px 18px;
+	margin: 0;
+	border-radius: 5px;
+	border: 1px solid $gray_light;
+	background: $gray_light;
+	box-shadow: none;
+	-webkit-appearance: none;
+	transition: all .2s;
+	@include media("<phone"){
+		height: 50px;
+		padding: 10px 14px;
+	}
+	&::-webkit-input-placeholder {
+		color: $gray;
+		opacity: 0.5;
+	}
+	&::-ms-input-placeholder {
+		color: $gray;
+		opacity: 0.5;
+	}
+	&::-moz-placeholder {
+		color: $gray;
+		opacity: 0.5;
+	}
+	&:focus{
+		outline: none;
+		box-shadow: none;
+		border: 1px solid $gray;
+	}
+}
+textarea.form__control{
+	height: 120px;
+	resize: none;
+	@include media("<phone"){
+		height: 100px;
+	}
+}

@@ -20,11 +20,11 @@ $container-large-desktop: 1310px;
 
 $font-family-base: $OpenSans;
 $font-size-base: 14px;
-$line-height-base: 1.25;
-$font-size-h1: 48px;
-$font-size-h2: 30px;
-$font-size-h3: 40px;
-$font-size-h4: 24px;
+$line-height-base: 1.6;
+$font-size-h1: 96px;
+$font-size-h2: 36px;
+$font-size-h3: 24px;
+$font-size-h4: 18px;
 
 $paragraph-spacing: 0 0 15px;
 
@@ -34,8 +34,9 @@ $time-animation: 0.3s;
 // colors
 $white: #fff;
 $black: #000;
-$gray: #888888;
-
+$gray: #333;
+$gray_light: #E5E5E5;
+$red: #F9403D;
 $yellow: #E8C300;
 
 
@@ -45,8 +46,7 @@ $body-bg: $white;
 $link-color: $black;
 
 $btn-color: $white;
-$btn-border-radius-base: 10px;
-$btn-font-size: 16px;
+$btn-border-radius-base: 5px;
+$btn-font-size: 12px;
 $btn-line-height: 20px;
 $btn-font-weight: 700;
-$btn-min-width: 205px;
